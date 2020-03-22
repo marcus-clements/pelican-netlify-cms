@@ -101,14 +101,35 @@ Netlify CMS files are in content/admin. The CMS is a single page React app inclu
 Create an account on Netlify by logging in with whichever Git repo provider - Gitlab or Github - from here on assuming Gitlab
 
 * Create "New site from Git"
-* Choose Gitlab
+* Choose your provider
 * Authorise Netlify
 * Choose your repo
-* Build command should be `./neylify-deploy.sh`
+* Build command should be `./netlify-deploy.sh`
 * Output directory should be `output/`
 * Deploy site
 
 Netlify will now clone your repo, run `pelican content` to generate the site HTML in the output directory, and then host the output directory on the web.
+
+### Possible Next steps
+* Choose a URL for your site in Netlify e.g. this repo is at https://pelican-example.netlify.com/
+* Add a page in pages (copy about.md and edit) - commit, push and see Netlify build and deploy automatically.
+
+## Setup Netlify CMS
+
+Netlify CMS is a single page React JS app that is loaded by the HTML file `/content/admin/index.html`. 
+
+For details about how Netlify CMS is configured for various site generators, read the docs at [Netlify CMS](https://www.netlifycms.org/docs/add-to-your-site/). An example configuration file is provided in `/content/admin/config.yml`. 
+
+### Enable Identity and Git Gateway
+_This section is taken from the Netlify CMS docs_
+
+Go to Settings > Identity, and select Enable Identity service.
+
+Under Registration preferences, select Open or Invite only. In most cases, you want only invited users to access your CMS, but if you're just experimenting, you can leave it open for convenience.
+
+If you'd like to allow one-click login with services like Google and GitHub, check the boxes next to the services you'd like to use, under External providers.
+
+Scroll down to Services > Git Gateway, and click Enable Git Gateway. This authenticates with your Git host and generates an API access token. In this case, we're leaving the Roles field blank, which means any logged in user may access the CMS. For information on changing this, check the [Netlify Identity documentation](https://www.netlify.com/docs/identity/).
 
 
 ## TODO
