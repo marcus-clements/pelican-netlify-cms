@@ -13,7 +13,7 @@ If configured to host, Netlify triggers a deployment automatically when the repo
 ## Developer Getting Started
 It's a good idea to skim read the [Pelican Docs](https://docs.getpelican.com/en/stable/install.html)
 
-Clone this repo if you haven't already and `cd` into it. 
+Fork this repo in Gitlab or Github, clone it locally and `cd` into it. 
 
 Setup a python virtual environment with [pyenv and virtualenv](https://github.com/pyenv/pyenv-virtualenv).
 ```
@@ -98,9 +98,18 @@ Netlify CMS files are in content/admin. The CMS is a single page React app inclu
 
 ## Setup Netlify to deploy and host
 
-Create an account on Netlify by logging in with whichever Git repo provider - Gitlab or Github
+Create an account on Netlify by logging in with whichever Git repo provider - Gitlab or Github - from here on assuming Gitlab
 
-Create "New site from Git"
+* Create "New site from Git"
+* Choose Gitlab
+* Authorise Netlify
+* Choose your repo
+* Build command should be `./neylify-deploy.sh`
+* Output directory should be `output/`
+* Deploy site
+
+Netlify will now clone your repo, run `pelican content` to generate the site HTML in the output directory, and then host the output directory on the web.
+
 
 ## TODO
 Themes are from [Pelican Themes](https://github.com/getpelican/pelican-themes)
