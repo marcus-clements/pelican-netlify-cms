@@ -1,0 +1,21 @@
+# pycharm
+.idea
+
+# pyenv virtualenv
+.python-version
+
+# python cache files
+__pycache__
+
+# pelican server files
+pelican.pid
+srv.pid
+
+# generated content
+output
+
+# local settings
+pelicanconf_local.py
+
+# apple sauce
+.DS_Store
